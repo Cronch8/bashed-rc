@@ -26,6 +26,20 @@ fcd() {
     fi
 }
 
+# yazi but when quiting cd into the dir where you ended
+function yz() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if [ -f "$tmp" ]; then
+        local cwd="$(cat -- "$tmp")"
+        if [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+            cd -- "$cwd"
+        fi
+        rm -f -- "$tmp"
+    fi
+}
+
+
 # shortcuts
 alias UE='/home/cronch/unreal-engine/Engine/Binaries/Linux/UnrealEditor'
 alias KSP='/home/cronch/Games/KSP/KSP_linux/KSP.x86_64'
