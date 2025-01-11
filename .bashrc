@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+    xterm-color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -47,12 +47,12 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+      # We have color support; assume it's compliant with Ecma-48
+      # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+      # a case would tend to support setf rather than setaf.)
+      color_prompt=yes
     else
-	color_prompt=
+      color_prompt=
     fi
 fi
 
@@ -68,7 +68,7 @@ if [ "$color_prompt" = yes ]; then
     }
     PROMPT_COMMAND=set_git_branch_prompt
 else
-	PS1="${debian_chroot:+($debian_chroot)}┌── \u @ \h : \w\\n└ "
+        PS1="${debian_chroot:+($debian_chroot)}┌── \u @ \h : \w\\n└ "
 fi
 unset color_prompt force_color_prompt
 
@@ -94,18 +94,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=normal -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -121,18 +109,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# case insensitive tab autocompletion 
-bind 'set completion-ignore-case on'
+bind "set completion-ignore-case on"
 
-# set tmux to vi bindings
-set -o vi
+export XKB_DEFAULT_OPTIONS="ctrl:swapcaps"
 
-# cool thing
-hyfetch --args "--localip-show-ipv4 false"
-
-export PATH=$PATH:/home/cronch/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/usr/local/go/bin:/usr/local/nvim-linux64/bin:/home/cronch/.cargo/bin:/home/cronch/.local/lib/python3.10/site-packages/hyfetch/fastfetch/usr/bin/fastfetch:/home/cronch/yazi
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
