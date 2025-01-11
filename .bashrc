@@ -61,9 +61,9 @@ if [ "$color_prompt" = yes ]; then
     set_git_branch_prompt() {
         if git rev-parse --is-inside-work-tree &>/dev/null; then
             git_branch_name=$(git rev-parse --abbrev-ref HEAD)
-            PS1="${debian_chroot:+($debian_chroot)}\[\033[01;37m\]┌──\[\033[00m\]\[\033[01m\] \u\[\033[00m\] @ \[\033[01m\]\h \[\033[00m\]\[\033[33m\](${git_branch_name})\[\033[00m\]\[\033[01m\] \[\033[01;34m\]\w\[\033[00m\]\\n└ "
+            PS1="${debian_chroot:+($debian_chroot)}\[\033[01;37m\]┌──\[\033[00m\]\[\033[01m\] \u\[\033[00m\] @ \[\033[01m\]\h \[\033[00m\]\[\033[33m\](${git_branch_name})\[\033[00m\]\[\033[01m\] \[\033[01;34m\]\w\[\033[00m\]\\n\[\033[01m\]└\[\033[00m\] "
         else
-            PS1="${debian_chroot:+($debian_chroot)}\[\033[01;37m\]┌──\[\033[00m\]\[\033[01m\] \u\[\033[00m\] @ \[\033[01m\]\h \[\033[00m\]: \[\033[01;34m\]\w\[\033[00m\]\\n└ "
+            PS1="${debian_chroot:+($debian_chroot)}\[\033[01;37m\]┌──\[\033[00m\]\[\033[01m\] \u\[\033[00m\] @ \[\033[01m\]\h \[\033[00m\]: \[\033[01;34m\]\w\[\033[00m\]\\n\[\033[01m\]└\[\033[00m\] "
         fi
     }
     PROMPT_COMMAND=set_git_branch_prompt
