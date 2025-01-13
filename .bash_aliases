@@ -7,7 +7,7 @@ flatpaks=$(flatpak list --app --columns=application)
 for uri in $flatpaks; do
     uriParts=( $(echo $uri | tr '.' ' ') )
     name=$( echo ${uriParts[-1]} | tr '[:upper:]' '[:lower:]')
-    alias $name="flatpak run $uri & &>/dev/null"
+    alias $name="&>/dev/null flatpak run $uri &"
 done
 
 # navigation
