@@ -7,7 +7,7 @@ flatpaks=$(flatpak list --app --columns=application)
 for uri in $flatpaks; do
     uriParts=( $(echo $uri | tr '.' ' ') )
     name=$( echo ${uriParts[-1]} | tr '[:upper:]' '[:lower:]')
-    alias $name="flatpak run $uri"
+    alias $name="flatpak run $uri & &>/dev/null"
 done
 
 # navigation
@@ -41,6 +41,8 @@ function yz() {
 
 
 # shortcuts
+alias la='ls -A --group-directories-first'
+alias ll='ls -Alh --group-directories-first'
 alias UE='/home/cronch/unreal-engine/Engine/Binaries/Linux/UnrealEditor'
 alias KSP='/home/cronch/Games/KSP/KSP_linux/KSP.x86_64'
 alias librewolf='nohup &>/dev/null flatpak run io.gitlab.librewolf-community &'
