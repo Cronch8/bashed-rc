@@ -11,7 +11,6 @@ for uri in $flatpaks; do
 done
 
 # navigation
-alias ..="cd .."
 alias :q="exit" # ive typed this by accident way to many times so i might as well just make this an actual shortcut
 fcd() {
     if [[ -z $1 ]]; then

@@ -116,6 +116,7 @@ if ! shopt -oq posix; then
 fi
 
 bind "set completion-ignore-case on"
+shopt -s autocd
 
 export XKB_DEFAULT_OPTIONS="ctrl:swapcaps"
 
