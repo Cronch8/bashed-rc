@@ -26,7 +26,7 @@ fcd() {
 }
 
 # yazi but when quiting cd into the dir where you ended
-function yz() {
+function y() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
     yazi "$@" --cwd-file="$tmp"
     if [ -f "$tmp" ]; then
