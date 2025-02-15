@@ -50,6 +50,7 @@ alias Vi="nvim -c 'Telescope oldfiles' -c 'cd %:h'"
 alias gdvi='nvim --listen /tmp/godot.pipe'
 
 # utility
+alias allfind='f() { grep -nr $1 -e $2 } f'
 alias copy='xclip -selection clipboard' # pipe stuff into here to copy it
 alias CA='f() { git add -u && git status && git commit -m "$1" ;}; f' # commit all
 alias PA='f() { git add -u && git status && echo -e "\033[36;1m------------------------------------------------------\033[0m\n" && git commit -m "$1" && git push ;}; f'
