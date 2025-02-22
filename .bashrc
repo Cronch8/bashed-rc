@@ -58,18 +58,26 @@ fi
 
 # if in a git repo, add a `(current_branch)` to the prompt and make it refresh each time a new prompt is printed
 if [ "$color_prompt" = yes ]; then
+    # Define color variables
+    RESET="\[\033[00m\]"
+    BOLD="\[\033[01m\]"
+    WHITE="\[\033[01;37m\]"
+    YELLOW="\[\033[33m\]"
+    BLUE="\[\033[01;34m\]"
+
     set_git_branch_prompt() {
         if git rev-parse --is-inside-work-tree &>/dev/null; then
             git_branch_name=$(git rev-parse --abbrev-ref HEAD)
-            PS1="${debian_chroot:+($debian_chroot)}\[\033[01;37m\]┌──\[\033[00m\]\[\033[01m\] \u\[\033[00m\] @ \[\033[01m\]\h \[\033[00m\]\[\033[33m\](${git_branch_name})\[\033[00m\]\[\033[01m\] \[\033[01;34m\]\w\[\033[00m\]\\n\[\033[01m\]└\[\033[00m\] "
+            PS1="${debian_chroot:+($debian_chroot)}\\n  ${WHITE}[${BOLD}\h${RESET}/${BOLD}\u${RESET}]${YELLOW} ${git_branch_name} ${RESET}${BOLD}${BLUE}[\w]\\n${RESET}  "
         else
-            PS1="${debian_chroot:+($debian_chroot)}\[\033[01;37m\]┌──\[\033[00m\]\[\033[01m\] \u\[\033[00m\] @ \[\033[01m\]\h \[\033[00m\]: \[\033[01;34m\]\w\[\033[00m\]\\n\[\033[01m\]└\[\033[00m\] "
+            PS1="${debian_chroot:+($debian_chroot)}\\n  ${WHITE}[${BOLD}\h${RESET}/${BOLD}\u${RESET}] ${RESET}${BOLD}${BLUE}[\w]\\n${RESET}  "
         fi
     }
     PROMPT_COMMAND=set_git_branch_prompt
 else
-        PS1="${debian_chroot:+($debian_chroot)}┌── \u @ \h : \w\\n└ "
+    PS1="${debian_chroot:+($debian_chroot)}┌── \u @ \h : \w\\n└ "
 fi
+
 unset color_prompt force_color_prompt
 
 
