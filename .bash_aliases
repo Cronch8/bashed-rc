@@ -53,7 +53,7 @@ alias gdvi='nvim --listen /tmp/godot.pipe'
 
 # utility
 allfind() {
-    grep -nr "$1" -e "$2"
+    grep -nrE "$1" -e "$2"
 }
 alias copy='xclip -selection clipboard' # pipe stuff into here to copy it
 alias CA='f() { git add -u && git status && git commit -m "$1" ;}; f' # commit all
