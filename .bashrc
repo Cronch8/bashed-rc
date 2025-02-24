@@ -76,7 +76,7 @@ if [ "$color_prompt" = yes ]; then
     }
     PROMPT_COMMAND=set_git_branch_prompt
 else
-    PS1="${debian_chroot:+($debian_chroot)}┌── \u @ \h : \w\\n└ "
+    PS1="${debian_chroot:+($debian_chroot)}\\n <|\u/\h|>  <|\w|>\\n   "
 fi
 
 unset color_prompt force_color_prompt

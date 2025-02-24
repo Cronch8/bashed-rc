@@ -2,7 +2,7 @@
 # generates the properly funcioning alias for fuck
 eval "$(thefuck --alias)"
 
-# navigation
+# search based navigation
 fcd() {
     if [[ -z $1 ]]; then
         depth=6
@@ -50,6 +50,7 @@ alias librewolf='nohup &>/dev/null flatpak run io.gitlab.librewolf-community &'
 alias vi='nvim'
 alias Vi="nvim -c 'Telescope oldfiles' -c 'cd %:h'"
 alias gdvi='nvim --listen /tmp/godot.pipe'
+alias g='git'
 
 # utility
 allfind() {
