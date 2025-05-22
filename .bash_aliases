@@ -42,6 +42,7 @@ for uri in $flatpaks; do
 done
 
 alias :q="exit" # ive typed this by accident way to many times so i might as well just make this an actual shortcut
+alias :Q="exit"
 alias la='ls -A --group-directories-first'
 alias ll='ls -Alh --group-directories-first'
 alias UE='/home/cronch/unreal-engine/Engine/Binaries/Linux/UnrealEditor'
@@ -53,9 +54,6 @@ alias gdvi='nvim --listen /tmp/godot.pipe'
 alias g='git'
 
 # utility
-allfind() {
-    grep -nrE "$1" -e "$2"
-}
 alias copy='xclip -selection clipboard' # pipe stuff into here to copy it
 alias CA='f() { git add -u && git status && git commit -m "$1" ;}; f' # commit all
 alias PA='f() { git add -u && git status && echo -e "\033[36;1m------------------------------------------------------\033[0m\n" && git commit -m "$1" && git push ;}; f'
@@ -65,5 +63,9 @@ alias find-history='history | grep "$1"' # currently broken
 nolog() { 
     "$@" &>/dev/null
 }
-alias flex='while true do ls -aR --color=always \; done' # why do i have this..
+
+if type "bat" > /dev/null; then
+    alias cat='bat'
+fi
+
 
