@@ -1,4 +1,5 @@
-
 BAT0=/sys/class/power_supply/BAT0
 alias charge='echo "current: $(cat $BAT0/capacity)%
 status: $(cat $BAT0/status)"'
+
+charge
