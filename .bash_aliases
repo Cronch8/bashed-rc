@@ -64,8 +64,3 @@ nolog() {
     "$@" &>/dev/null
 }
 
-if type "bat" > /dev/null; then
-    alias cat='bat'
-fi
-
-
