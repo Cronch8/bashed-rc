@@ -69,9 +69,9 @@ if [ "$color_prompt" = yes ]; then
     set_git_branch_prompt() {
         if git rev-parse --is-inside-work-tree &>/dev/null; then
             git_branch_name=$(git rev-parse --abbrev-ref HEAD)
-            PS1="${debian_chroot:+($debian_chroot)}\\n ${GREEN}<|${BOLD}\u${RESET}${GREEN}/${BOLD}${GREEN}\h${RESET}${GREEN}|>${YELLOW} <=${git_branch_name}>= ${RESET}${BOLD}${BLUE}<|\w|>\\n${RESET}   "
+            PS1="${debian_chroot:+($debian_chroot)}\\n ${GREEN}${BOLD}\u${RESET}${GREEN}/${BOLD}${GREEN}\h${RESET}${GREEN}${YELLOW}  ${git_branch_name}  ${RESET}${BOLD}${BLUE}\w\\n${RESET}   "
         else
-            PS1="${debian_chroot:+($debian_chroot)}\\n ${GREEN}<|${BOLD}\u${RESET}${GREEN}/${BOLD}${GREEN}\h${RESET}${GREEN}|>${YELLOW}  ${RESET}${BOLD}${BLUE}<|\w|>\\n${RESET}   "
+            PS1="${debian_chroot:+($debian_chroot)}\\n ${GREEN}${BOLD}\u${RESET}${GREEN}/${BOLD}${GREEN}\h${RESET}${GREEN}${YELLOW}   ${RESET}${BOLD}${BLUE}\w\\n${RESET}   "
         fi
     }
     PROMPT_COMMAND=set_git_branch_prompt
