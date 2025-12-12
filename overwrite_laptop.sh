@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp .bashrc .bash_aliases .bash_laptop_aliases ..
+cp .bashrc .bash_aliases .bash_laptop_aliases ~/

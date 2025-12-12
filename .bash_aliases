@@ -1,6 +1,6 @@
 
-# generates the properly funcioning alias for fuck
-eval "$(thefuck --alias)"
+# generates the properly funcioning alias for fuck (I uninstalled it, hense commented out)
+# eval "$(thefuck --alias)"
 
 # search based navigation
 fcd() {

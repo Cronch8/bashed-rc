@@ -103,9 +103,13 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-if [ -f ~/.cd_backtrack ]; then
-    source ~/.cd_backtrack
-fi
+# holy shit bash is so fucked of a language. I gave up on trying to get the ctrl+i keybind
+# to work. posixmeharder, seriously. (someone must have gotten that reference, right?)
+#if [ -f ~/.cd_backtrack ]; then
+#    source ~/.cd_backtrack
+#    bind -x '"\C-o": "backtrack"'
+#    bind -x '"\C-i": "advance"'
+#fi
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
